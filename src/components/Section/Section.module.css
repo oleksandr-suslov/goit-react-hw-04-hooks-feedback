@@ -1,0 +1,13 @@
+.section {
+  background-color: aliceblue;
+  width: 300px;
+  padding: 20px;
+}
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: grey;
+  margin: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
