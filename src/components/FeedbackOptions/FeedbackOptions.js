@@ -4,8 +4,8 @@ import styles from "./FeedbackOptions.module.css";
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <ul className={styles.btnList}>
-      {options.map((item, index) => (
-        <li key={index}>
+      {options.map((item) => (
+        <li key={item}>
           <Button name={item} clickOnBtn={onLeaveFeedback} />
         </li>
       ))}

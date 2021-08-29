@@ -12,7 +12,7 @@ export default class Feedback extends Component {
   };
 
   handleBtnClick = (e) => {
-    const label = e.target.textContent;
+    const label = e.target.name;
     this.setState((prevState) => ({ [label]: prevState[label] + 1 }));
   };
 
@@ -34,7 +34,7 @@ export default class Feedback extends Component {
     const key = Object.keys(this.state);
     const total = this.countTotalFeedback();
     const percentage = this.countPositiveFeedbackPercentage();
-
+    const { good, neutral, bad } = this.state;
     return (
       <div>
         <Section title="Please leave feedback">
@@ -49,9 +49,9 @@ export default class Feedback extends Component {
             <Notification message="No feedback given"></Notification>
           ) : (
             <Statistics
-              good={this.state[key[0]]}
-              neutral={this.state[key[1]]}
-              bad={this.state[key[2]]}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={total}
               positivePercentage={percentage}
             ></Statistics>
