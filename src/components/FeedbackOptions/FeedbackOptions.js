@@ -6,7 +6,7 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
     <ul className={styles.btnList}>
       {options.map((item) => (
         <li key={item}>
-          <Button name={item} clickOnBtn={onLeaveFeedback} />
+          <Button name={[item]} clickOnBtn={onLeaveFeedback} />
         </li>
       ))}
     </ul>

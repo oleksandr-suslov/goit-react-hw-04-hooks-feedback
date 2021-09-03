@@ -3,4 +3,5 @@
   height: 30px;
   padding: 5px;
   margin: 0;
+  text-transform: capitalize;
 }
