@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
 import Statistics from "../Statistics/Statistics";
 import Section from "../Section/Section";
@@ -37,7 +37,9 @@ export default function Feedback() {
     return result === 0 ? 0 : Math.round(percentage);
   };
 
-  const key = ["good", "neutral", "bad"];
+  const key = useMemo(() => {
+    return ["good", "neutral", "bad"];
+  }, []);
 
   const total = countTotalFeedback();
   const percentage = countPositiveFeedbackPercentage();
@@ -45,10 +47,7 @@ export default function Feedback() {
   return (
     <div>
       <Section title="Please leave feedback">
-        <FeedbackOptions
-          options={key}
-          onLeaveFeedback={handleBtnClick}
-        ></FeedbackOptions>
+        <FeedbackOptions options={key} onLeaveFeedback={handleBtnClick} />
       </Section>
 
       <Section title="Statistics">
@@ -61,7 +60,7 @@ export default function Feedback() {
             bad={bad}
             total={total}
             positivePercentage={percentage}
-          ></Statistics>
+          />
         )}
       </Section>
     </div>
